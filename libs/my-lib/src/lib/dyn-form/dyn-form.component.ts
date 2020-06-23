@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DynForm } from '@dahoamviernull/my-lib';
 
@@ -7,7 +7,7 @@ import { DynForm } from '@dahoamviernull/my-lib';
   templateUrl: './dyn-form.component.html',
   styleUrls: ['./dyn-form.component.scss']
 })
-export class DynFormComponent implements OnInit {
+export class DynFormComponent implements OnInit, OnChanges {
   @Input()
   get formProvider (): DynForm[] {
     return this._formProvider;
@@ -16,6 +16,8 @@ export class DynFormComponent implements OnInit {
     this._formProvider = value;
     this.createFormGroup ();
   }
+
+  @Input() title: string;
 
   myForm: FormGroup;
   @Output() submitData: EventEmitter<unknown> = new EventEmitter<unknown>();
@@ -51,5 +53,8 @@ export class DynFormComponent implements OnInit {
 
   sendData () {
     this.submitData.emit ( this.myForm.value );
+  }
+
+  ngOnChanges ( changes: SimpleChanges ): void {
   }
 }

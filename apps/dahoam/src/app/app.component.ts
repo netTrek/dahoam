@@ -45,4 +45,12 @@ export class AppComponent {
   sendData ( data: any ) {
     console.log ( data );
   }
+
+  extend () {
+    this.dynFormData = [...this.dynFormData, {
+      name      : 'ZIP',
+      type      : 'number',
+      validators: []
+    }]
+  }
 }

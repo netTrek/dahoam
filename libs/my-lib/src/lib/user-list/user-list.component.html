@@ -1,6 +1,7 @@
 <ul>
   <li *ngFor="let user of userList"
-      (click)="setAsSelected(user)"
+      dahoamviernullDangerBtn="willst du {{user.firstName}} wirklich selektieren"
+      (confirmed)="setAsSelected(user)"
   >
     {{user.firstName}} {{user.lastName}}
   </li>
