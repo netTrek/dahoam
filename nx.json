@@ -25,6 +25,16 @@
     "dahoam-e2e": {
       "tags": [],
       "implicitDependencies": ["dahoam"]
+    },
+    "rathaus": {
+      "tags": []
+    },
+    "rathaus-e2e": {
+      "tags": [],
+      "implicitDependencies": ["rathaus"]
+    },
+    "my-lib": {
+      "tags": []
     }
   }
 }
