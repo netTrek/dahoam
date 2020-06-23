@@ -1,2 +1,9 @@
 <h1>dahoam</h1>
 <dahoamviernull-countdown></dahoamviernull-countdown>
+<p *ngIf="selectedUsr">{{selectedUsr | json}}</p>
+<dahoamviernull-user-list
+  [userList]="userList"
+  (selectedUsr)="selectedUser($event)"
+></dahoamviernull-user-list>
+<dahoamviernull-dyn-form [formProvider]="dynFormData"
+                         (submitData)="sendData($event)"></dahoamviernull-dyn-form>

@@ -1,0 +1,25 @@
+<p>reactive-form-sample works!</p>
+
+<ng-container *ngIf="myForm">
+
+  <form [formGroup]="myForm" (ngSubmit)="sendData()">
+    <ng-container *ngFor="let formItem of formProvider">
+      <input
+        [type]="formItem.type"
+        [formControl]="formItem.control"
+        [placeholder]="formItem.name"
+      >
+      <div *ngIf="formItem.control.invalid && formItem.control.touched">
+        <span *ngIf="formItem.control.errors?.required">
+          Dieses Feld ist ein Pflichtfeld
+        </span>
+        <span *ngIf="formItem.control.errors?.email">
+          Ungültige Mail Adresse
+        </span>
+      </div>
+    </ng-container>
+
+    <button type="submit" [disabled]="myForm.invalid">submit</button>
+  </form>
+</ng-container>
+
