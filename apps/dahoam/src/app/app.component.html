@@ -1,4 +1,12 @@
 <h1>dahoam</h1>
+<nav>
+  <a routerLink="home">home</a> |
+  <a routerLink="dash">dash</a> |
+  <a routerLink="dash/detail">dash details</a>
+</nav>
+<router-outlet></router-outlet>
+<hr>
+
 <dahoamviernull-countdown></dahoamviernull-countdown>
 <p *ngIf="selectedUsr">{{selectedUsr | json}}</p>
 <dahoamviernull-user-list
