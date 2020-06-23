@@ -2,7 +2,8 @@
 <nav>
   <a routerLink="home">home</a> |
   <a routerLink="dash">dash</a> |
-  <a routerLink="dash/detail">dash details</a>
+  <a routerLink="dash/detail">dash details</a> |
+  <a routerLink="contact">contact</a>
 </nav>
 <router-outlet></router-outlet>
 <hr>
@@ -16,3 +17,5 @@
 <dahoamviernull-dyn-form [formProvider]="dynFormData" title="Anmeldung"
                          (submitData)="sendData($event)"></dahoamviernull-dyn-form>
 <button (click)="extend()">extend</button>
+
+

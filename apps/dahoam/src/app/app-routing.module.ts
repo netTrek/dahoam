@@ -5,7 +5,8 @@ import { HomeComponent } from './home/home.component';
 const routes: Route[] = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  { path: 'dash', loadChildren: () => import('./dash/dash.module').then(m => m.DashModule) }
+  { path: 'dash', loadChildren: () => import('./dash/dash.module').then(m => m.DashModule) },
+  { path: 'contact', loadChildren: () => import('./../../../../libs/my-lib/src/lib/contact/contact.module').then(m => m.ContactModule) }
 ];
 
 @NgModule({
