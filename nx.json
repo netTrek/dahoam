@@ -33,6 +33,13 @@
       "tags": [],
       "implicitDependencies": ["rathaus"]
     },
+    "web-comp": {
+      "tags": []
+    },
+    "web-comp-e2e": {
+      "tags": [],
+      "implicitDependencies": ["web-comp"]
+    },
     "my-lib": {
       "tags": []
     },

@@ -244,6 +244,129 @@
         }
       }
     },
+    "web-comp": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/web-comp",
+      "sourceRoot": "apps/web-comp/src",
+      "prefix": "dahoam",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/web-comp",
+            "index": "apps/web-comp/src/index.html",
+            "main": "apps/web-comp/src/main.ts",
+            "polyfills": "apps/web-comp/src/polyfills.ts",
+            "tsConfig": "apps/web-comp/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/web-comp/src/favicon.ico",
+              "apps/web-comp/src/assets"
+            ],
+            "styles": ["apps/web-comp/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/web-comp/src/environments/environment.ts",
+                  "with": "apps/web-comp/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "web-comp:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "web-comp:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "web-comp:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/web-comp/tsconfig.app.json",
+              "apps/web-comp/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/web-comp/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/web-comp/jest.config.js",
+            "tsConfig": "apps/web-comp/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/web-comp/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "web-comp-e2e": {
+      "root": "apps/web-comp-e2e",
+      "sourceRoot": "apps/web-comp-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/web-comp-e2e/cypress.json",
+            "tsConfig": "apps/web-comp-e2e/tsconfig.e2e.json",
+            "devServerTarget": "web-comp:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "web-comp:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/web-comp-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/web-comp-e2e/**/*"]
+          }
+        }
+      }
+    },
     "my-lib": {
       "projectType": "library",
       "root": "libs/my-lib",

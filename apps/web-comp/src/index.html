@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>WebComp</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <nt-wizard title="dorsten" id="wizard"></nt-wizard><button id="btn">change</button>
+  <script>
+    const wizard = document.querySelector ( '#wizard' );
+    const btn = document.querySelector ( '#btn' );
+    btn.addEventListener( 'click', () => wizard.setAttribute('title', 'münchen'));
+    wizard.addEventListener('checked', console.log );
+    const frankfurt = document.createElement('nt-wizard');
+    frankfurt
+    frankfurt.setAttribute( 'title', 'frankfurt');
+    document.body.append( frankfurt );
+  </script>
+  </body>
+</html>
